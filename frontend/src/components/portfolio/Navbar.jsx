@@ -12,7 +12,7 @@ function Navbar() {
     const [open, setOpen] = useState(false)
 
     return (
-        <nav className="sticky top-0 z-50 text-blue-900" style={{ backgroundColor: '#e5e7eb' }}>
+        <nav className="fixed top-0 left-0 right-0 z-50 text-blue-900" style={{ backgroundColor: '#e5e7eb' }}>
             <div className="flex justify-between items-center px-6 sm:px-10 py-4">
                 <a href="/" className="font-bold text-xl italic no-underline text-blue-900">Bode</a>
 

@@ -51,8 +51,6 @@ def get_comments_service(article_id: int, db: Session):
         .all()
     )
 
-    print("COMMENTS FROM DB:", comments)
-
     tree = build_tree(comments)
     return [serialize_comment(c) for c in tree]
 

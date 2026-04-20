@@ -82,21 +82,21 @@ def generate_article_pdf(db: Session, article_id: str):
 
     # Helvetica only supports Latin-1; replace common Unicode characters
     _UNICODE_MAP = str.maketrans({
-        "\u2026": "...",   # …
-        "\u2018": "'",     # '
-        "\u2019": "'",     # '
-        "\u201c": '"',     # "
-        "\u201d": '"',     # "
-        "\u2013": "-",     # –
-        "\u2014": "--",    # —
-        "\u2022": "-",     # •
-        "\u00b7": "-",     # ·
-        "\u00a0": " ",     # non-breaking space
-        "\u2032": "'",     # ′
-        "\u2033": '"',     # ″
-        "\u00ae": "(R)",   # ®
-        "\u00a9": "(c)",   # ©
-        "\u2122": "(TM)",  # ™
+        "\u2026": "...",
+        "\u2018": "'",
+        "\u2019": "'",
+        "\u201c": '"',
+        "\u201d": '"',
+        "\u2013": "-",
+        "\u2014": "--",
+        "\u2022": "-",
+        "\u00b7": "-",
+        "\u00a0": " ",
+        "\u2032": "'",
+        "\u2033": '"',
+        "\u00ae": "(R)",
+        "\u00a9": "(c)",
+        "\u2122": "(TM)",
     })
 
     def clean(text: str) -> str:

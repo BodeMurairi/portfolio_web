@@ -58,7 +58,7 @@ def remove_article_image(db: Session, article_id: str, image_url: str):
 
 
 def get_analytics(db: Session) -> dict:
-    """Return aggregate stats + per-article breakdown for the admin analytics view"""
+    """Return aggregate stats per-article breakdown for the admin analytics view"""
     articles = (
         db.query(Article)
         .options(joinedload(Article.stats))

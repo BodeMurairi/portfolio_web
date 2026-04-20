@@ -22,3 +22,23 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Database backups
+*.dump
+
+# pycache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+# Coverage reports
+coverage/
+*.lcov
+*.lcov.info
+# Build output
+build/

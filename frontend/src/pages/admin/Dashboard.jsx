@@ -21,7 +21,7 @@ function Dashboard() {
     const [active, setActive] = useState("profile")
 
     return (
-        <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#f8f9fc" }}>
+        <div className="min-h-screen flex flex-col pt-[64px]" style={{ backgroundColor: "#f8f9fc" }}>
             <AdminNavbar />
             <AdminHero />
 

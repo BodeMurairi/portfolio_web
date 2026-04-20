@@ -124,6 +124,7 @@ function ProfileForms() {
         const file = e.target.files[0]
         if (!file) return
         setProfileFile(file)
+        if (localPreview) URL.revokeObjectURL(localPreview)
         const objectUrl = URL.createObjectURL(file)
         setLocalPreview(objectUrl)
         setDisplaySrc(objectUrl)
@@ -139,6 +140,7 @@ function ProfileForms() {
             const res = await api.post("/auth/update/profile-picture", formData, { headers: authHeaders() })
             dispatch(setProfilePicture(res.data.profile_picture))
             setProfileFile(null)
+            if (localPreview) URL.revokeObjectURL(localPreview)
             setLocalPreview(null)
             notify(res.data.message)
         } catch (err) {

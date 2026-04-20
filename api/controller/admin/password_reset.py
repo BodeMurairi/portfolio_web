@@ -84,6 +84,7 @@ def reset_password(email: str, otp_code: str, new_password: str, db: Session):
 
     admin.password_hash = hash_password(new_password)
     otp.used = True
+    db.add(admin)
     db.commit()
 
     return {"message": "Password updated successfully"}

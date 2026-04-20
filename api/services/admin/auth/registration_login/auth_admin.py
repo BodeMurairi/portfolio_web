@@ -26,7 +26,6 @@ class Authentication:
         about: str,
         github_link: Optional[str],
         linkedin_link: Optional[str],
-        twitter_link: Optional[str],
         profile_picture_url: Optional[str],
     ):
         """Register a new admin"""

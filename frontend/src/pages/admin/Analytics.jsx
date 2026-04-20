@@ -5,7 +5,7 @@ import Footer from "../../components/portfolio/footer"
 
 function Analytics() {
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col pt-[64px]">
             <AdminNavbar />
             <main className="flex-1">
                 <AdminHero title="Analytics" subtitle="Track reads, likes and engagement across your articles" />

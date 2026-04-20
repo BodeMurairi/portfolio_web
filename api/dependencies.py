@@ -6,7 +6,7 @@ from services.admin.auth.jwt import decode_access_token
 
 def get_current_admin(authorization: str = Header(...)):
     """
-    Extract the doctor_id from a valid JWT token in the Authorization header.
+    Extract the admin_id from a valid JWT token in the Authorization header.
     """
     if not authorization or " " not in authorization:
         raise Unauthorized("Authorization header missing or invalid")

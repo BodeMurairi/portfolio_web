@@ -12,7 +12,7 @@ load_dotenv()
 R2_ACCESS_KEY_ID = os.getenv("CLOUDFLARE_ACCESS_KEYID")
 R2_SECRET_ACCESS_KEY = os.getenv("SECRET_ACCESS_KEY")
 R2_BUCKET_NAME = os.getenv("R2_BUCKET_NAME")
-R2_PUBLIC_URL_BASE = os.getenv("R2_PUBLIC_URL_BASE").rstrip("/")
+R2_PUBLIC_URL_BASE = (os.getenv("R2_PUBLIC_URL_BASE") or "").rstrip("/")
 
 # Strip the bucket name from the endpoint URL if present
 _raw_endpoint = os.getenv("R2_ENDPOINT", "").rstrip("/")

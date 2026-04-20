@@ -8,7 +8,6 @@ from routes.cv.project import router as project_router
 from routes.cv.education import router as education_router
 from routes.cv.about import router as about_router
 from routes.cv.experience import router as experience_router
-from routes.cv.project import router as project_router
 from routes.cv.certificate import router as certificate_router
 from routes.cv.skill import router as skill_router
 from routes.articles.articles import router as article_router

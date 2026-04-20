@@ -11,7 +11,7 @@ function PortfolioPage() {
     return (
         <div className="min-h-screen flex flex-col">
             <Navbar />
-            <main className="flex-1">
+            <main className="flex-1 pt-[64px]">
                 <section id="home">
                     <Hero />
                 </section>

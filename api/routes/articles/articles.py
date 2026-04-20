@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from fastapi.routing import APIRouter
-from fastapi import Depends
+from fastapi import Depends, Query
 from fastapi.responses import Response
 from database.session import get_db
 from controller.articles.view_articles import (
@@ -62,16 +62,16 @@ async def read_article_id(article_id:str, db:Session = Depends(get_db))-> dict:
     return get_article_id(db=db, article_id=article_id)
 
 @router.put("/articles_stat/read_count")
-async def read_count_nb(article_id:str, db:Session= Depends(get_db)):
+async def read_count_nb(article_id: str = Query(...), db: Session = Depends(get_db)):
     """update article read"""
     return read_count(article_id=article_id, db=db)
 
 @router.put("/articles_stat/likes_count")
-async def likes_count(article_id:str, db:Session = Depends(get_db)):
+async def likes_count(article_id: str = Query(...), db: Session = Depends(get_db)):
     """update likes count"""
     return update_likes(db=db, article_id=article_id)
 
 @router.put("/articles_stat/view_count")
-async def view_count(article_id:str, db:Session = Depends(get_db)):
+async def view_count(article_id: str = Query(...), db: Session = Depends(get_db)):
     """update view count"""
     return update_count_view(db=db, article_id=article_id)

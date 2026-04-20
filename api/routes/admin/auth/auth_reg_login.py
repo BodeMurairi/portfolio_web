@@ -38,7 +38,6 @@ def register_new_admin(
     about: str = Form(...),
     github_link: Optional[str] = Form(default=None),
     linkedin_link: Optional[str] = Form(default=None),
-    twitter_link: Optional[str] = Form(default=None),
     profile_picture: Optional[UploadFile] = File(default=None),
     db: Session = Depends(get_db),
 ):
@@ -58,7 +57,6 @@ def register_new_admin(
         about=about,
         github_link=github_link,
         linkedin_link=linkedin_link,
-        twitter_link=twitter_link,
         profile_picture_url=profile_picture_url,
         db=db,
     )

@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import Spinner from '../components/Spinner'
 
 const PortfolioPage = lazy(() => import('../pages/PortfolioPage'))
 const LoginPage     = lazy(() => import('../pages/LoginPage'))
@@ -14,7 +15,7 @@ const Analytics     = lazy(() => import('../pages/admin/Analytics'))
 
 function AppRouter() {
     return (
-        <Suspense fallback={<div />}>
+        <Suspense fallback={<Spinner />}>
         <Routes>
             <Route path="/"                   element={<PortfolioPage />} />
             <Route path="/login"              element={<LoginPage />} />

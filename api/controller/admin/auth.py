@@ -20,7 +20,6 @@ def create_admin(
     about: str,
     github_link: Optional[str],
     linkedin_link: Optional[str],
-    twitter_link: Optional[str],
     profile_picture_url: Optional[str],
     db: Session,
 ):
@@ -37,7 +36,6 @@ def create_admin(
         about=about,
         github_link=github_link,
         linkedin_link=linkedin_link,
-        twitter_link=twitter_link,
         profile_picture_url=profile_picture_url,
     )
 

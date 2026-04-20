@@ -10,7 +10,7 @@ function AdminNavbar() {
     }
 
     return (
-        <nav className="sticky top-0 z-50 flex justify-between items-center px-4 sm:px-10 py-4 text-blue-900" style={{ backgroundColor: "#e5e7eb" }}>
+        <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-4 sm:px-10 py-4 text-blue-900" style={{ backgroundColor: "#e5e7eb" }}>
             <a href="/" className="font-bold text-xl italic no-underline text-blue-900">Bode</a>
             <ul className="flex gap-8 list-none m-0 p-0 items-center">
                 <li>

@@ -5,7 +5,7 @@ import Footer from "../../components/portfolio/footer"
 
 function EditProfile() {
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col pt-[64px]">
             <AdminNavbar />
             <main className="flex-1">
                 <AdminHero title="Edit Profile" subtitle="Update your profile picture, bio, links and password" />
