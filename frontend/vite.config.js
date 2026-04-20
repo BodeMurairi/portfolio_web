@@ -11,10 +11,16 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'redux-vendor': ['react-redux', '@reduxjs/toolkit'],
-          'router': ['react-router-dom'],
+        manualChunks: (id) => {
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'react-vendor';
+          }
+          if (id.includes('node_modules/react-redux') || id.includes('node_modules/@reduxjs')) {
+            return 'redux-vendor';
+          }
+          if (id.includes('node_modules/react-router-dom') || id.includes('node_modules/react-router')) {
+            return 'router';
+          }
         },
       },
     },
