@@ -1,0 +1,17 @@
+[
+  {"name": "Sports", "slug": "sports"},
+  {"name": "Technology", "slug": "technology"},
+  {"name": "Science", "slug": "science"},
+  {"name": "Health & Fitness", "slug": "health-fitness"},
+  {"name": "Business & Finance", "slug": "business-finance"},
+  {"name": "Entertainment", "slug": "entertainment"},
+  {"name": "Travel", "slug": "travel"},
+  {"name": "Lifestyle", "slug": "lifestyle"},
+  {"name": "Politics", "slug": "politics"},
+  {"name": "Education", "slug": "education"},
+  {"name": "Food & Drink", "slug": "food-drink"},
+  {"name": "Environment & Nature", "slug": "environment-nature"},
+  {"name": "Automotive", "slug": "automotive"},
+  {"name": "Gaming", "slug": "gaming"},
+  {"name": "Opinion & Editorials", "slug": "opinion-editorials"}
+]

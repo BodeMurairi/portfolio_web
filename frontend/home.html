@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WebSocket Chat Test</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .chat {
+      width: 400px;
+      height: 600px;
+      background: #1e293b;
+      display: flex;
+      flex-direction: column;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .messages {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+    }
+
+    .msg {
+      background: #3b82f6;
+      padding: 8px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      max-width: 70%;
+    }
+
+    .input {
+      display: flex;
+    }
+
+    .input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      outline: none;
+    }
+
+    .input button {
+      padding: 10px;
+      background: green;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="chat">
+  <div class="messages" id="messages"></div>
+
+  <div class="input">
+    <input id="input" placeholder="Type message..." />
+    <button onclick="send()">Send</button>
+  </div>
+</div>
+
+<script>
+  const articleId = 1; // adjust to test other articles
+  const ws = new WebSocket(`ws://localhost:8000/ws/ws/${articleId}`);
+
+  const messages = document.getElementById("messages");
+  const input = document.getElementById("input");
+
+  ws.onopen = () => console.log("Connected to WebSocket");
+
+  ws.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    if (data.type === "new_comment") {
+      addMessage(data.data.content);
+    }
+  };
+
+  function addMessage(text) {
+    const div = document.createElement("div");
+    div.className = "msg";
+    div.innerText = text;
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function send() {
+    const text = input.value.trim();
+    if (!text) return;
+
+    fetch(`http://localhost:8000/ws/create/${articleId}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: text,
+        author: "Bode"
+      })
+    });
+
+    input.value = "";
+  }
+
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") send();
+  });
+</script>
+
+</body>
+</html>

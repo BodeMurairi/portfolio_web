@@ -1,0 +1,41 @@
+services:
+  db:
+    image: postgres:15
+    container_name: portfolio_db
+    restart: always
+    environment:
+      POSTGRES_USER: bode
+      POSTGRES_PASSWORD: "BMMalustud@2030##"
+      POSTGRES_DB: portfolio
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bode -d portfolio"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: portfolio_backend
+    restart: always
+    env_file:
+      - ./api/.env
+    environment:
+      DATABASE_URL: postgresql+psycopg2://bode:BMMalustud%402030%23%23@db:5432/portfolio
+      POSTGRES_USER: bode
+      POSTGRES_PASSWORD: "BMMalustud@2030##"
+      POSTGRES_DB: portfolio
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ["./wait-for-db.sh", "db", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+volumes:
+  postgres_data:

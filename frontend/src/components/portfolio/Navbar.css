@@ -1,0 +1,31 @@
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+
+    color: #1E3A8A;
+}
+
+#navbar ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+#navbar ul li {
+    cursor: pointer;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo {
+    text-decoration: none;
+    color: white;
+}
